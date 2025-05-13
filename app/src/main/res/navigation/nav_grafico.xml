@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_grafico">
+    android:id="@+id/nav_grafico"
+    app:startDestination="@id/pestallaBienvenida">
+
+
+    <fragment
+        android:id="@+id/pestallaBienvenida"
+        android:name="com.example.myapplication.PestallaBienvenida"
+        android:label="Bienvenida">
+        <action
+            android:id="@+id/action_bienvenidojuego"
+            app:destination="@id/pestallaJuego" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/pestallaJuego"
+        android:name="com.example.myapplication.PestallaJuego"
+        android:label="Juego">
+        <action
+            android:id="@+id/action_pestallaJuego_to_pestallaFinal"
+            app:destination="@id/pestallaFinal" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/pestallaFinal"
+        android:name="com.example.myapplication.PestallaFinal"
+        android:label="Resultado">
+        <argument
+            android:name="puntaje"
+            app:argType="integer" />
+
+        <!-- Nueva acción para reiniciar el juego -->
+        <action
+            android:id="@+id/action_pestallaFinal_to_pestallaJuego"
+            app:destination="@id/pestallaJuego" />
+    </fragment>
 
 </navigation>
